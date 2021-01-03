@@ -3,7 +3,7 @@ txtArea.onkeyup=function () {
     var word=getLastWord(txtArea.value);
     if(wordmatch(word))
     {
-    alert(word);
+  txtArea.replacealast(txtArea.value,word);
     }
 }
 
@@ -30,6 +30,25 @@ function wordmatch(text)
     {
         if(text.substring(0,keywords[i].length) ==keywords[i])
         {return true;}
+
+    }
+}
+
+function replacealast(text,word)
+{
+    var result="";
+    result=text.substring(0,text.length-word.length)+wordinstead(word);
+    return result;
+}
+
+var availword=["medical","anything"];
+function wordinstead(word)
+{
+    word=word.toLowerCase();
+    for(var i=0;i<keywords.length;i++)
+    {
+       if(word.substring(0,keywords[i].length) ==keywords[i])
+        {return availword;}
 
     }
 }
