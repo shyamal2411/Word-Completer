@@ -1,7 +1,10 @@
 var txtArea=document.getElementById("txtArea");
 txtArea.onkeyup=function () {
     var word=getLastWord(txtArea.value);
+    if(wordmatch(word))
+    {
     alert(word);
+    }
 }
 
 function getLastWord(text) {
@@ -18,4 +21,15 @@ function getLastWord(text) {
         }
     }    
     return result;
+}
+var keywords=["med","anyt"];
+function wordmatch(text)
+{
+    text=text.LowerCase();
+    for(var i=0;i<keywords.length;i++)
+    {
+        if(text.substring(0,keywords[i].length) ==keywords[i])
+        {return true;}
+
+    }
 }
